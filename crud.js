@@ -1,20 +1,29 @@
 document.querySelector("#salvar").addEventListener("click",cadastrar)
 
 function cadastrar(){
-    const titulo  = document.querySelector('#titulo').value
-    const descricao  = document.querySelector('#descricao').value
-    const categoria  = document.querySelector('#categoria').value
+    const nome  = document.querySelector('#nome').value
+    const preco  = document.querySelector('#preco').value
+    const marca  = document.querySelector('#marca').value
+    const tipo = document.querySelector('#tipo_produto').value
+    const imagem = "./img/"+marca+".png"
 
     const modal = bootstrap.Modal.getInstance(document.querySelector('#exampleModal'))
 
     const tarefa = {
-        titulo,
-        descricao,
-        categoria
+        nome,
+        preco,
+        marca,
+        tipo,
+        imagem
     }
 
-    if(!validar(tarefa.titulo,document.querySelector("#titulo")))return
-    if(!validar(tarefa.descricao,document.querySelector("#descricao")))return
+    if(tarefa.modelo=="adidas"){
+        tarefa.imgem="./img/adidas.png"
+    }
+    console.log(tarefa)
+
+    if(!validar(tarefa.nome,document.querySelector("#nome")))return
+    if(!validar(tarefa.preco,document.querySelector("#preco")))return
 
     document.querySelector("#tarefas").innerHTML += createCard(tarefa)
 
@@ -36,24 +45,28 @@ function validar(valor,campo){
 function apagar(botao){
     botao.parentNode.parentNode.parentNode.remove()
 }
-
 function createCard(tarefa){
     return `
-            <div class="col-lg-3 col-md-12">
-                <div class="card">
-                    <div class="card-header">
-                        ${tarefa.titulo}
-                    </div>
-                    <div class="card-body">
-                        <p class="card-text">${tarefa.descricao}</p>
-                        <p><span class="badge text-bg-danger">${tarefa.categoria}</span></p>
-                        <a href="#" class="btn btn-success" title="marcar como concluida">
-                        <i class="bi bi-check-lg"></i>
-                        </a>
-                        <a  onClick ="apagar(this)" href="#" class="btn btn-danger" title="apagar tarefa">
-                        <i class="bi bi-trash"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>`//template literals
+    <div class="col-lg-3 col-md-12">
+    <div class="card">
+        <div class="card-header">
+        ${tarefa.nome}
+        </div>
+        <div class="card-body">
+          <div class="text-center">
+            <img src="${tarefa.imagem}" class="card-img-top" alt="...">
+          </div>
+            <p class="card-text">R$ ${tarefa.preco}</p>
+            <p class="float-start"><span class="badge text-bg-light">${tarefa.marca}</span></p>
+            <p> <span class="badge text-bg-dark">${tarefa.tipo}</span></p>
+            <a href="#" class="btn btn-success" title="marcar como concluida">
+            <i class="bi bi-check-lg"></i>
+            </a>
+            <a  onClick ="apagar(this)" href="#" class="btn btn-danger" title="apagar tarefa">
+            <i class="bi bi-trash"></i>
+            </a>
+        </div>
+    </div>
+    </div>`//template literals
 }
+

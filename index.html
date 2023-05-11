@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
+          <a class="navbar-brand" href="#">Sports</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -46,12 +46,13 @@
     <div class="container mt-3">
         <!--linha-->
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            cadastrar tarefa
+            cadastrar Produto
           </button>
         <div id="tarefas" class="row mt-1">
 
         </div>
     </div>
+    
     <!-- Button trigger modal -->
   
   <!-- Modal -->
@@ -59,27 +60,39 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastrar tarefa</h1>
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastrar Produto</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
             <form>
                 <div class="mb-3">
-                  <label for="titulo" class="form-label">Titulo</label>
-                  <input type="text" class="form-control" id="titulo" aria-describedby="titulo">
+                  <label for="titulo" class="form-label">Nome do produto</label>
+                  <input type="text" class="form-control" id="nome" aria-describedby="titulo">
                 </div>
                 <div class="mb-3">
-                  <label for="descricao" class="form-label">descrição</label>
-                  <input type="text" class="form-control" id="descricao">
+                  <label for="descricao" class="form-label">Preço</label>
+                  <input type="number" class="form-control" id="preco">
                 </div>
                 <div class="mb-3">
-                    <select id="categoria" class="form-select" aria-label="Default select example">
-                        <option selected>selecione a categoria</option>
-                        <option value="Estudos">Estudos</option>
-                        <option value="Trabalho">Trabalho</option>
-                        <option value="Pessoal">Pessoal</option>
+                    <select id="marca" class="form-select" aria-label="Default select example">
+                        <option selected>selecione a Marca</option>
+                        <option value="Nike">Nike</option>
+                        <option value="Adidas">Adidas</option>
+                        <option value="Puma">Puma</option>
+                        <option value="Olympikus">Olimpcus</option>
+                        <option value="Jordan">Jordan</option>
                     </select>
                 </div>
+                <div class="mb-3">
+                  <select id="tipo_produto" class="form-select" aria-label="Default select example">
+                      <option selected>selecione tipo</option>
+                      <option value="Tenis">Tenis</option>
+                      <option value="Camisa">Camisa</option>
+                      <option value="Short">Short</option>
+                      <option value="meia">meia</option>
+                      <option value="bone">boné</option>
+                  </select>
+              </div>
               </form>
         </div>
         <div class="modal-footer">
