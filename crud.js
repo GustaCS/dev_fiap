@@ -17,11 +17,6 @@ function cadastrar(){
         imagem
     }
 
-    if(tarefa.modelo=="adidas"){
-        tarefa.imgem="./img/adidas.png"
-    }
-    console.log(tarefa)
-
     if(!validar(tarefa.nome,document.querySelector("#nome")))return
     if(!validar(tarefa.preco,document.querySelector("#preco")))return
 
